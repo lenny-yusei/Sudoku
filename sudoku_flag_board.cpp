@@ -132,7 +132,7 @@ uint64_t search_answer(std::vector<pair_pi> empty_points_heaped, SudokuFlagBoard
                     std::push_heap(empty_points_heaped.begin(), empty_points_heaped.begin() + i + 1, foo1);
                 }
             }
-            //#pragma omp task shared(ans, j, empty_points_heaped, board)
+            #pragma omp task shared(ans, j, empty_points_heaped, board)
             ans[j] = search_answer(empty_points_heaped, board);
 
             board.del(next_point.x, next_point.y);
